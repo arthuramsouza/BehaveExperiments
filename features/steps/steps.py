@@ -95,3 +95,58 @@ def see_error_invalid_email(context):
     """
     :type context: behave.runner.Context
     """
+
+
+@given("I am at the home page")
+def at_home_page(context):
+    """
+    :type context: behave.runner.Context
+    """
+    print('Code that opens the browser and goes to the home page')
+
+
+@when("I click on 'Contact us'")
+def click_contact_us(context):
+    """
+    :type context: behave.runner.Context
+    """
+    print('Clicking on "contact us"')
+
+
+@then("I should see '123 Testing St.'")
+def see_address(context):
+    """
+    :type context: behave.runner.Context
+    """
+    print('See the correct address')
+
+
+@when("I click on my account")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    print('Click on "my account"')
+
+
+@then("I should see 'Preferences'")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    print('See "preferences"')
+    assert 1 == 2, "one is not the same as two"
+
+
+@given("I have a new '{item}' in my cart")
+def item_in_cart(context, item):
+
+    if item.lower() not in ['book', 'dvd']:
+        raise Exception('Unexpected text passed as item.')
+
+    print("The item is: {}".format(item))
+
+    if item.lower() == 'book':
+        print('Go read it!')
+    elif item.lower() == 'dvd':
+        print('GO watch it!')
